@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var request = new XMLHttpRequest();
+        // console.log(request);
+        request.open('GET','https://restcountries.com/v3.1/all');
+        request.send();
+        request.onload = function(){
+            var data = JSON.parse(request.response);
+            console.log(data);
+            const asiaCountries = data.filter(count => count.region === 'Asia');
+            const asiaCountryNames = asiaCountries.map(count => count.name.common);
+            console.log(asiaCountryNames);
+            const popul = data.filter(pop => pop.population < 200000);
+            const popu = popul.map((pop) => pop.name.common);
+            console.log(popu);
+            const tot = data.reduce((acc,ind) => acc+ind.population,0);
+            console.log(tot);
+            const curr = data.filter()
+            const cu = curr.map((cur) => cur.name.common);
+            console.log(cu);
+            }
+
+    </script>
+</body>
+</html>
