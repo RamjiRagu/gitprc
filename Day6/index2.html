@@ -25,6 +25,24 @@
             const curr = data.filter()
             const cu = curr.map((cur) => cur.name.common);
             console.log(cu);
+            data.forEach((country) => {
+            const name = country.name.common;
+            const capital = country.capital[0];
+            const flag = country.flags.svg;
+
+            console.log("Name: " + name);
+            console.log("Capital: " + capital);
+            console.log("Flag: " + flag);
+            console.log("\n"); // Add a newline for separation
+            });
+            const usDollarCountries = data.filter((country) =>
+            country.currencies && country.currencies.USD
+            );
+
+            // Use forEach to print the names of countries using US dollars
+            usDollarCountries.forEach((country) => {
+            console.log("Country: " + country.name.common);
+            });
             }
 
     </script>
